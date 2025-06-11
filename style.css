@@ -352,6 +352,56 @@ canvas#hearts-canvas {
   text-align: justify;
 }
 
+#galeria-section {
+  padding: 50px 20px;
+  background: linear-gradient(to bottom, #fff0f5, #f8d9e9);
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  margin-top: 50px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.galeria-fotos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.foto-item {
+  width: 200px;
+  text-align: center;
+}
+
+.foto-item img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.foto-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.foto-item p {
+  margin-top: 10px;
+  font-style: italic;
+  color: #6a1b4d;
+  font-size: 0.95em;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 #btn-voltar-galeria {
   margin-top: 30px;

@@ -1,22 +1,23 @@
-// Botão de entrada
 function entrarSite() {
+  // Esconde a tela inicial
   document.getElementById('welcome-screen').style.display = 'none';
+
+  // Mostra o conteúdo principal
   document.getElementById('main-content').style.display = 'block';
-  escreverTexto();
+
+  // Força rolar para o topo após o conteúdo aparecer
+  setTimeout(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, 100); // Pequeno delay para garantir que o conteúdo já está visível
+
+  // Inicia animações de corações
   iniciarCorações();
 }
 
-// Efeito de máquina de escrever
-const texto = "Oi meu amor... Essa cartinha é só o começo de algo muito especial que preparei para você. Obrigado por tudo que somos juntos. ❤️";
-let i = 0;
-function escreverTexto() {
-  const elemento = document.getElementById('typing-text');
-  if (i < texto.length) {
-    elemento.innerHTML += texto.charAt(i);
-    i++;
-    setTimeout(escreverTexto, 50);
-  }
-}
+// Efeito máquina de escrever removido para manter o texto fixo da carta
 
 // Corações caindo no canvas
 function iniciarCorações() {
@@ -50,7 +51,7 @@ function iniciarCorações() {
     ctx.bezierCurveTo(20, 0, 20, -15, 10, -15);
     ctx.bezierCurveTo(3, -15, 0, -3, 0, 0);
     ctx.closePath();
-    ctx.fillStyle = 'rgba(255, 20, 147, 0.8)'; // rosa choque
+    ctx.fillStyle = 'rgba(255, 0, 136, 0.49)'; // rosa choque
     ctx.fill();
     ctx.restore();
   }
@@ -82,18 +83,11 @@ function iniciarCorações() {
   });
 }
 
-document.getElementById('enter-button').addEventListener('click', () => {
-  document.getElementById('welcome-screen').style.display = 'none';
-  document.getElementById('main-content').style.display = 'block';
-});
+// Botão "Entrar"
+document.getElementById('enter-button').addEventListener('click', entrarSite);
 
-
-
-// Botão para voltar da galeria para o conteúdo principal
-document.getElementById('btn-voltar-galeria').addEventListener('click', () => {
-  document.getElementById('galeria-section').style.display = 'none';
-  document.getElementById('main-content').style.display = 'block';
-});
-
-
-
+// (Se quiser, remova os trechos abaixo relacionados à galeria, se não usar)
+// document.getElementById('btn-voltar-galeria').addEventListener('click', () => {
+//   document.getElementById('galeria-section').style.display = 'none';
+//   document.getElementById('main-content').style.display = 'block';
+// });
